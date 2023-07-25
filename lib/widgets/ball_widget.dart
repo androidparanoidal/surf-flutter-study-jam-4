@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:surf_practice_magic_ball/data.dart';
+import 'package:shake/shake.dart';
 
 class MagicBall extends StatefulWidget {
   const MagicBall({Key? key}) : super(key: key);
@@ -18,9 +19,21 @@ class _MagicBallState extends State<MagicBall> {
       setState(() {
         prediction = data;
       });
-    } catch (exeption) {
-      print(exeption);
+    } catch (exception) {
+      print(exception);
     }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    ShakeDetector detector = ShakeDetector.autoStart(
+      shakeThresholdGravity: 2.5,
+      onPhoneShake: () {
+        getData();
+        //setState(() {});
+      },
+    );
   }
 
   @override
@@ -35,7 +48,7 @@ class _MagicBallState extends State<MagicBall> {
           children: [
             Image.asset('images/start/ball.png'),
             Image.asset('images/start/small_star.png',
-                width: 250, height: 250, fit: BoxFit.fill),
+                width: 240, height: 240, fit: BoxFit.fill),
             Image.asset('images/start/star.png',
                 width: 210, height: 210, fit: BoxFit.fill),
             Text(

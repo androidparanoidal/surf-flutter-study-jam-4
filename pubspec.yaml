@@ -13,6 +13,7 @@ dependencies:
 
   cupertino_icons: ^1.0.2
   http: ^1.1.0
+  shake: ^2.2.0
 
 
 dev_dependencies:
@@ -27,6 +28,7 @@ flutter:
   assets:
     - images/
     - images/start/
+
 
   fonts:
     - family: GillSans
