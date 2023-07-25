@@ -27,7 +27,7 @@ class _MagicBallState extends State<MagicBall> {
   @override
   void initState() {
     super.initState();
-    ShakeDetector detector = ShakeDetector.autoStart(
+    ShakeDetector.autoStart(
       shakeThresholdGravity: 2.5,
       onPhoneShake: () {
         getData();
@@ -51,13 +51,16 @@ class _MagicBallState extends State<MagicBall> {
                 width: 240, height: 240, fit: BoxFit.fill),
             Image.asset('images/start/star.png',
                 width: 210, height: 210, fit: BoxFit.fill),
-            Text(
-              prediction,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 32.0,
-                fontFamily: 'GillSans',
-                color: Colors.white,
+            Container(
+              padding: EdgeInsets.all(40.0),
+              child: Text(
+                prediction,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 32.0,
+                  fontFamily: 'GillSans',
+                  color: Colors.white,
+                ),
               ),
             ),
           ],
